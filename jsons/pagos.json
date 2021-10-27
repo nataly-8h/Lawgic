@@ -1,0 +1,17 @@
+[
+    {
+        "pagoID" : 5555,
+        "sID" : 123,
+        "cursoID" : 124,
+        "vendedor" : "Mariana",
+        "inscrito" : false,
+        "monto" : 1000,
+        "pagado" : 500,
+        "por pagar" : 500,
+        "fecha_cierre" : "01/12/2021",
+        "comentarios" : [
+            {"comentario" : "No respondió"}
+        ]
+        
+    }
+]
