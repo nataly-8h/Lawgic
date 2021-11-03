@@ -3,7 +3,7 @@
         <div class="w-full max-w-80 sm:w-80 mx-auto sm:mx-0">
             <!-- Logo -->
             <div class="w-12">
-                <img src="assets/images/logo/logo.svg">
+                <img src="assets/images/logo/greenLawgic.svg">
             </div>
 
             <!-- Title -->
@@ -12,7 +12,7 @@
                 <div>¿Ya tiene cuenta?</div>
                 <a
                     class="ml-1 text-primary-500 hover:underline"
-                    [routerLink]="['/pages/authentication/sign-in']">Ingresar
+                    [routerLink]="['/sign-in']">Ingresar
                 </a>
             </div>
 
@@ -32,36 +32,51 @@
                 class="mt-8"
                 [formGroup]="signUpForm">
 
-                <!-- Name field -->
-                <mat-form-field class="w-full">
-                    <mat-label>Full name</mat-label>
+                <div class="flex items-baseline space-x-2">
+                    <mat-form-field class="w-full">
+                    <mat-label>Nombre</mat-label>
                     <input
                         id="name"
                         matInput
                         [formControlName]="'name'">
                     <mat-error *ngIf="signUpForm.get('name').hasError('required')">
-                        Full name is required
+                        El nombre es obligatorio
                     </mat-error>
                 </mat-form-field>
 
+                <!-- Surame field -->
+                <mat-form-field class="w-full">
+                    <mat-label>Apellido</mat-label>
+                    <input
+                        id="name"
+                        matInput
+                        [formControlName]="'name'">
+                    <mat-error *ngIf="signUpForm.get('name').hasError('required')">
+                        El apellido es obligatorio
+                    </mat-error>
+                </mat-form-field>
+                </div>
+                <!-- Name field -->
+                
+
                 <!-- Email field -->
                 <mat-form-field class="w-full">
-                    <mat-label>Email address</mat-label>
+                    <mat-label>Correo electrónico</mat-label>
                     <input
                         id="email"
                         matInput
                         [formControlName]="'email'">
                     <mat-error *ngIf="signUpForm.get('email').hasError('required')">
-                        Email address is required
+                        El correo electrónico es obligatorio
                     </mat-error>
                     <mat-error *ngIf="signUpForm.get('email').hasError('email')">
-                        Please enter a valid email address
+                        Por favor ingrese un correo electrónico válido
                     </mat-error>
                 </mat-form-field>
 
                 <!-- Password field -->
                 <mat-form-field class="w-full">
-                    <mat-label>Password</mat-label>
+                    <mat-label>Contraseña</mat-label>
                     <input
                         id="password"
                         matInput
@@ -83,13 +98,13 @@
                             [svgIcon]="'heroicons_solid:eye-off'"></mat-icon>
                     </button>
                     <mat-error>
-                        Password is required
+                        Se requiere contraseña
                     </mat-error>
                 </mat-form-field>
 
                 <!-- Company field -->
                 <mat-form-field class="w-full">
-                    <mat-label>Company</mat-label>
+                    <mat-label>Ocupación</mat-label>
                     <input
                         id="company-confirm"
                         matInput
@@ -122,7 +137,7 @@
                     [disabled]="signUpForm.disabled"
                     (click)="signUp()">
                     <span *ngIf="!signUpForm.disabled">
-                        Create your free account
+                        Registrar
                     </span>
                     <mat-progress-spinner
                         *ngIf="signUpForm.disabled"

@@ -3,7 +3,7 @@
         <div class="w-full max-w-80 sm:w-80 mx-auto sm:mx-0">
             <!-- Logo -->
             <div class="w-12">
-                <img src="assets/images/logo/logo.svg"> 
+                <img src="assets/images/logo/greenLawgic.svg"> 
             </div>
 
             <!-- Title -->
@@ -12,7 +12,7 @@
                 <div>¿No está registrado?</div>
                 <a
                     class="ml-1 text-primary-500 hover:underline"
-                    [routerLink]="['/sign-up']">Registrarse
+                    [routerLink]="['/sign-up']">Regístrate
                 </a>
             </div>
 
@@ -41,10 +41,10 @@
                         matInput
                         [formControlName]="'email'">
                     <mat-error *ngIf="signInForm.get('email').hasError('required')">
-                        El email es obligatorio
+                        El correo electrónico es obligatorio
                     </mat-error>
                     <mat-error *ngIf="signInForm.get('email').hasError('email')">
-                        Por favor ingrese un email válido
+                        Por favor ingrese un correo electrónico válido
                     </mat-error>
                 </mat-form-field>
 
