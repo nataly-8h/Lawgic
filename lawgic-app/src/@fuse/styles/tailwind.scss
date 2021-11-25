@@ -76,9 +76,9 @@
         }
     }
 
-    [disabled] * {
-        @apply text-disabled #{'!important'};
-    }
+    // [disabled] * {
+    //     @apply text-disabled #{'!important'};
+    // }
 
     /* Print styles */
     @media print {
