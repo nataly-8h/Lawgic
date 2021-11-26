@@ -1,3 +1,6 @@
+// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { MatInputModule } from '@angular/material/input';
+// import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -40,7 +43,12 @@ const routerConfig: ExtraOptions = {
         LayoutModule,
 
         // 3rd party modules that require global configuration via forRoot
-        MarkdownModule.forRoot({})
+        MarkdownModule.forRoot({}),
+
+        // MatFormFieldModule,
+        // MatInputModule,
+        // FormsModule,
+        // ReactiveFormsModule
     ],
     bootstrap   : [
         AppComponent
