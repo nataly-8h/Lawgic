@@ -1,3 +1,4 @@
+import { SubeFormularioModule } from './modules/sube-formulario/sube-formulario.module';
 import { Route } from '@angular/router';
 import { AuthGuard } from 'app/core/auth/guards/auth.guard';
 import { NoAuthGuard } from 'app/core/auth/guards/noAuth.guard';
@@ -74,6 +75,8 @@ export const appRoutes: Route[] = [
         },
         children   : [
             {path: 'example', loadChildren: () => import('app/modules/admin/example/example.module').then(m => m.ExampleModule)},
+            {path: 'registra-pago', loadChildren: () => import('app/modules/registra-pago/registra-pago.module').then(m => m.RegistraPagoModule)},
+            {path: 'sube-formulario', loadChildren: () => import('app/modules/sube-formulario/sube-formulario.module').then(m => m.SubeFormularioModule)},
         ]
     }
 ];

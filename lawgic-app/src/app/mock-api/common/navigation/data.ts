@@ -8,6 +8,20 @@ export const defaultNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:currency-dollar',
         link : '/example'
+    },
+    {
+        id   : 'registra-pago',
+        title: 'Registrar un pago',
+        type : 'basic',
+        icon : 'heroicons_outline:currency-dollar',
+        link : '/registra-pago'
+    },
+    {
+        id   : 'sube-formulario',
+        title: 'Subir formulario',
+        type : 'basic',
+        icon : 'heroicons_outline:upload',
+        link : '/sube-formulario'
     }
 ];
 export const compactNavigation: FuseNavigationItem[] = [
@@ -17,6 +31,20 @@ export const compactNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:currency-dollar',
         link : '/example'
+    },
+    {
+        id   : 'registra-pago',
+        title: 'Registrar un pago',
+        type : 'basic',
+        icon : 'heroicons_outline:currency-dollar',
+        link : '/registra-pago'
+    },
+    {
+        id   : 'sube-formulario',
+        title: 'Subir formulario',
+        type : 'basic',
+        icon : 'heroicons_outline:upload',
+        link : '/sube-formulario'
     }
 ];
 export const futuristicNavigation: FuseNavigationItem[] = [
@@ -26,6 +54,20 @@ export const futuristicNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:currency-dollar',
         link : '/example'
+    },
+    {
+        id   : 'registra-pago',
+        title: 'Registrar un pago',
+        type : 'basic',
+        icon : 'heroicons_outline:currency-dollar',
+        link : '/registra-pago'
+    },
+    {
+        id   : 'sube-formulario',
+        title: 'Subir formulario',
+        type : 'basic',
+        icon : 'heroicons_outline:upload',
+        link : '/sube-formulario'
     }
 ];
 export const horizontalNavigation: FuseNavigationItem[] = [
@@ -35,5 +77,19 @@ export const horizontalNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:currency-dollar',
         link : '/example'
+    },
+    {
+        id   : 'registra-pago',
+        title: 'Registrar un pago',
+        type : 'basic',
+        icon : 'heroicons_outline:currency-dollar',
+        link : '/registra-pago'
+    },
+    {
+        id   : 'sube-formulario',
+        title: 'Subir formulario',
+        type : 'basic',
+        icon : 'heroicons_outline:upload',
+        link : '/sube-formulario'
     }
 ];
