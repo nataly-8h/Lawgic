@@ -5,7 +5,7 @@
         <div class="flex flex-auto items-start min-w-0">
             <div class="flex flex-col min-w-0 ">
                 <div class="text-2xl md:text-5xl font-bold tracking-tight leading-8 md:leading-snug truncate">
-                    Bienvenido!</div>
+                    ¡Bienvenido!</div>
 
             </div>
         </div>
@@ -34,7 +34,7 @@
                         <!-- Surame field -->
                         <mat-form-field class="w-full">
                             <mat-label>Apellido</mat-label>
-                            <input id="name" matInput>
+                            <input id="lname" matInput>
                             <!-- <mat-error *ngIf="signUpForm.get('name').hasError('required')">
                                 El apellido es obligatorio
                             </mat-error> -->
@@ -65,17 +65,27 @@
                     <div class="flex items-baseline space-x-2">
                         <mat-form-field class="w-full">
                             <mat-label>Estado</mat-label>
-                            <input id="name" matInput>
-                            
+                            <input id="estado" matInput>
+
+
                         </mat-form-field>
+
+                        <!-- <mat-form-field class="w-full">
+                            <mat-label>Favorite food</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let food of foods" [value]="food.value">
+                                    {{food.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field> -->
 
                         <mat-form-field class="w-full">
                             <mat-label>Ciudad</mat-label>
-                            <input id="name" matInput>
-                           
+                            <input id="ciudad" matInput>
+
                         </mat-form-field>
 
-                        
+
                     </div>
                     <mat-form-field class="w-full">
                         <mat-label>Profesión</mat-label>
@@ -98,8 +108,40 @@
                         <input id="phone" matInput>
                     </mat-form-field>
 
-                    
+
                 </form>
+
+                <!-- Wallet -->
+                <div class="flex flex-col px-6 pb-2">
+                    <mat-form-field class="w-full">
+                        <mat-label>Wallet</mat-label>
+                        <mat-select
+                            [value]="'btc'"
+                            #walletSelector="matSelect">
+                            <mat-select-trigger>
+                                <span class="flex items-center">
+                                    <!-- <span>{{walletSelector.triggerValue}}</span> -->
+                                    <span class="mx-1 text-hint">-</span>
+                                    <span class="flex items-center font-mono">
+                                        <!-- <span>{{data.wallets[walletSelector.value]}}</span>
+                                        <span class="ml-1">{{walletSelector.value | uppercase}}</span> -->
+                                        
+                                    </span>
+                                </span>
+                            </mat-select-trigger>
+                            <mat-option [value]="'btc'">Bitcoin</mat-option>
+                            <mat-option [value]="'eth'">Ethereum</mat-option>
+                            <mat-option [value]="'bch'">Bitcoin Cash</mat-option>
+                            <mat-option [value]="'xrp'">XRP</mat-option>
+                        </mat-select>
+                        <mat-hint class="flex items-center">
+                            <span class="mr-1">USD:</span>
+                            <!-- <span class="font-mono font-medium text-normal">
+                                {{data.wallets[walletSelector.value] * data.prices[walletSelector.value] | currency:'USD'}}
+                            </span> -->
+                        </mat-hint>
+                    </mat-form-field>
+                </div>
 
 
 

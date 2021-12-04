@@ -1,3 +1,5 @@
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { SubeFormularioComponent } from './sube-formulario.component';
 // import { Router } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -18,7 +20,9 @@ const Routes: Route[] = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(Routes)
+    RouterModule.forChild(Routes),
+    MatButtonModule,
+    MatIconModule
   ]
 })
 export class SubeFormularioModule { }

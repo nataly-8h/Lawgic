@@ -5,6 +5,11 @@ import { fuseAnimations } from '@fuse/animations';
 import { FuseAlertType } from '@fuse/components/alert';
 import { AuthService } from 'app/core/auth/auth.service';
 
+interface Food {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-registra-pago',
   templateUrl: './registra-pago.component.html',
@@ -13,6 +18,13 @@ import { AuthService } from 'app/core/auth/auth.service';
   animations: fuseAnimations
 })
 export class RegistraPagoComponent implements OnInit {
+
+  foods: Food[] = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'},
+  ];
+
   @ViewChild('signUpNgForm') signUpNgForm: NgForm;
 
   alert: { type: FuseAlertType; message: string } = {
