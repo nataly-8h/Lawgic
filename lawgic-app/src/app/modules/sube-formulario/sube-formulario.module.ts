@@ -13,7 +13,9 @@ const Routes: Route[] = [
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    SubeFormularioComponent
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(Routes)

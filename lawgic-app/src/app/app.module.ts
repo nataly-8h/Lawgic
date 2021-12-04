@@ -1,5 +1,3 @@
-import { SubeFormularioComponent } from './modules/sube-formulario/sube-formulario.component';
-import { RegistraPagoComponent } from './modules/registra-pago/registra-pago.component';
 // import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { MatInputModule } from '@angular/material/input';
 // import { MatFormFieldModule } from '@angular/material/form-field';
@@ -25,9 +23,7 @@ const routerConfig: ExtraOptions = {
 
 @NgModule({
     declarations: [
-        AppComponent,
-        RegistraPagoComponent,
-        SubeFormularioComponent
+        AppComponent
     ],
     imports     : [
         BrowserModule,

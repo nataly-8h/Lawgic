@@ -1,3 +1,8 @@
+import { SharedModule } from 'app/shared/shared.module';
+import { FuseAlertModule } from '@fuse/components/alert';
+import { FuseCardModule } from '@fuse/components/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon';
 import { RegistraPagoComponent } from './registra-pago.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -16,14 +21,21 @@ const Routes: Route[] = [
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    RegistraPagoComponent
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(Routes),
     MatButtonModule,
     MatCheckboxModule,
     MatFormFieldModule,
-    MatInputModule
+    MatIconModule,
+    MatInputModule,
+    MatProgressSpinnerModule,
+    FuseCardModule,
+    FuseAlertModule,
+    SharedModule
   ]
 })
 export class RegistraPagoModule { }
