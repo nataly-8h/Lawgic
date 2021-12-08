@@ -1,9 +1,16 @@
-import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+// import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { fuseAnimations } from '@fuse/animations';
 import { FuseAlertType } from '@fuse/components/alert';
 import { AuthService } from 'app/core/auth/auth.service';
+import  *  as  estado_data  from  './estados.json';
+
+//wallet
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { ApexOptions, ChartComponent } from 'ng-apexcharts';
+import { Subject } from 'rxjs';
+
 
 interface Food {
   value: string;
@@ -15,17 +22,29 @@ interface Food {
   templateUrl: './registra-pago.component.html',
   styleUrls: ['./registra-pago.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  animations: fuseAnimations
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RegistraPagoComponent implements OnInit {
 
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'},
-  ];
+  selected = 'option2';
+
+  
+  estados: any[] = new Array(32);
+
+  
+
+  // let jsonCountries = JSON.stringify
 
   @ViewChild('signUpNgForm') signUpNgForm: NgForm;
+
+  @ViewChild('btcChartComponent') btcChartComponent: ChartComponent;
+  appConfig: any;
+  btcOptions: ApexOptions = {};
+  data: any;
+  drawerMode: 'over' | 'side' = 'side';
+  drawerOpened: boolean = true;
+  watchlistChartOptions: ApexOptions = {};
+  private _unsubscribeAll: Subject<any> = new Subject<any>();
 
   alert: { type: FuseAlertType; message: string } = {
     type: 'success',
@@ -38,12 +57,23 @@ export class RegistraPagoComponent implements OnInit {
     private _authService: AuthService,
     private _formBuilder: FormBuilder,
     private _router: Router
-  ) { }
+  ) { 
+
+    for(let i = 0; i < 32; i++){
+      this.estados[i] = estado_data[i];
+    }
+
+
+  }
 
   /**
      * On init
      */
   ngOnInit(): void {
+
+    console.log(this.estados[0]);
+
+
     // Create the form
     this.signUpForm = this._formBuilder.group({
       name: ['', Validators.required],
