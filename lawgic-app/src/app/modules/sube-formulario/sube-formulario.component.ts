@@ -19,7 +19,7 @@ export class SubeFormularioComponent implements OnInit {
   
   addAttachment(fileInput: any) {
     const fileReaded = fileInput.target.files[0];
-    //  handle the rest 
+    console.log(fileReaded.name);
   }
 
 }
