@@ -12,4 +12,14 @@ export class SubeFormularioComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  handleClick() {
+    document.getElementById('upload-file').click();
+    // console.log("dio click");
+  }
+  
+  addAttachment(fileInput: any) {
+    const fileReaded = fileInput.target.files[0];
+    //  handle the rest 
+  }
+
 }

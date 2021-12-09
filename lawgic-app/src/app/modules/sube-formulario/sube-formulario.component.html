@@ -1,4 +1,4 @@
-<div class="flex flex-col flex-auto min-w-0">
+<div class="flex flex-col flex-auto min-w-0" >
 
     <!-- Main -->
     <div class="flex-auto p-6 sm:p-10">
@@ -11,7 +11,7 @@
         </div>
         <br> -->
         <!-- CONTENT GOES HERE -->
-        <div class="h-300 min-h-0 max-h-400 border-2 border-green-700 rounded-2xl p-3">
+        <div class="h-300 min-h-0 max-h-400 border-2 border-green-700 rounded-2xl p-3 content-center" >
 
             <div flex flex-col items-start min-w-0>
                 <div class="text-lg md:text-5xl font-semibold tracking-tight leading-8 md:leading-snug truncate">
@@ -19,10 +19,12 @@
 
                 <div class="mt-4 sm:mt-0" >
                     <!-- Upload button -->
-                    <button mat-flat-button [color]="'primary'">
+                    <button mat-flat-button [color]="'primary'" (click)="handleClick()" href="javascript:undefined">
                         <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon>
                         <span class="ml-2 mr-1">Upload file</span>
                     </button>
+                    <input class="hidden" type="file" id="upload-file" name="upload-file" accept=".csv" ngf-max-size="2MB" (change)="addAttachment($event)">
+
                 </div>
 
 

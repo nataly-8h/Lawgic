@@ -1,7 +1,7 @@
 [
   {
     "clave": "AGS",
-    "nombre": "AGUASCALIENTES",
+    "Nombre": "Aguascalientes",
     "muni": [
       "Aguascalientes",
       "Asientos",
@@ -18,7 +18,7 @@
   },
   {
     "clave": "BC",
-    "nombre": "BAJA CALIFORNIA",
+    "Nombre": "Baja California",
     "muni": [
       "Ensenada",
       "Mexicali",
@@ -29,7 +29,7 @@
   },
   {
     "clave": "BCS",
-    "nombre": "BAJA CALIFORNIA SUR",
+    "Nombre": "Baja California Sur",
     "muni": [
       "Comondu",
       "La Paz",
@@ -40,7 +40,7 @@
   },
   {
     "clave": "CHI",
-    "nombre": "CHIHUAHUA",
+    "Nombre": "Chihuahua",
     "muni": [
       "Ahumada",
       "Aldama",
@@ -113,7 +113,7 @@
   },
   {
     "clave": "CHS",
-    "nombre": "CHIAPAS",
+    "Nombre": "Chiapas",
     "muni": [
       "Acacoyagua",
       "Acala",
@@ -242,7 +242,7 @@
   },
   {
     "clave": "CMP",
-    "nombre": "CAMPECHE",
+    "Nombre": "Campeche",
     "muni": [
       "Calakmul",
       "Calkini",
@@ -259,7 +259,7 @@
   },
   {
     "clave": "CMX",
-    "nombre": "CIUDAD DE MEXICO",
+    "Nombre": "Ciudad De Mexico",
     "muni": [
       "Alvaro Obregon",
       "Azcapotzalco",
@@ -281,7 +281,7 @@
   },
   {
     "clave": "COA",
-    "nombre": "COAHUILA",
+    "Nombre": "Coahuila",
     "muni": [
       "Abasolo",
       "Acuna",
@@ -325,7 +325,7 @@
   },
   {
     "clave": "COL",
-    "nombre": "COLIMA",
+    "Nombre": "Colima",
     "muni": [
       "Armeria",
       "Colima",
@@ -341,7 +341,7 @@
   },
   {
     "clave": "DGO",
-    "nombre": "DURANGO",
+    "Nombre": "Durango",
     "muni": [
       "Canatlan",
       "Canelas",
@@ -386,7 +386,7 @@
   },
   {
     "clave": "GRO",
-    "nombre": "GUERRERO",
+    "Nombre": "Guerrero",
     "muni": [
       "Acapulco de Juarez",
       "Acatepec",
@@ -473,7 +473,7 @@
   },
   {
     "clave": "GTO",
-    "nombre": "GUANAJUATO",
+    "Nombre": "Guanajuato",
     "muni": [
       "Abasolo",
       "Acambaro",
@@ -525,7 +525,7 @@
   },
   {
     "clave": "HGO",
-    "nombre": "HIDALGO",
+    "Nombre": "Hidalgo",
     "muni": [
       "Acatlan",
       "Acaxochitlan",
@@ -615,7 +615,7 @@
   },
   {
     "clave": "JAL",
-    "nombre": "JALISCO",
+    "Nombre": "Jalisco",
     "muni": [
       "Acatic",
       "Acatlan de Juarez",
@@ -746,7 +746,7 @@
   },
   {
     "clave": "MCH",
-    "nombre": "MICHOACAN",
+    "Nombre": "Michoacan",
     "muni": [
       "Acuitzio",
       "Aguililla",
@@ -865,7 +865,7 @@
   },
   {
     "clave": "MEX",
-    "nombre": "ESTADO DE MEXICO",
+    "Nombre": "Estado De Mexico",
     "muni": [
       "Acambay de Ruiz Castaneda",
       "Acolman",
@@ -996,7 +996,7 @@
   },
   {
     "clave": "MOR",
-    "nombre": "MORELOS",
+    "Nombre": "Morelos",
     "muni": [
       "Amacuzac",
       "Atlatlahucan",
@@ -1035,7 +1035,7 @@
   },
   {
     "clave": "NAY",
-    "nombre": "NAYARIT",
+    "Nombre": "Nayarit",
     "muni": [
       "Acaponeta",
       "Ahuacatlan",
@@ -1061,7 +1061,7 @@
   },
   {
     "clave": "NL",
-    "nombre": "NUEVO LEON",
+    "Nombre": "Nuevo Leon",
     "muni": [
       "Abasolo",
       "Agualeguas",
@@ -1118,7 +1118,7 @@
   },
   {
     "clave": "OAX",
-    "nombre": "OAXACA",
+    "Nombre": "Oaxaca",
     "muni": [
       "Abejones",
       "Acatlan de Perez Figueroa",
@@ -1695,7 +1695,7 @@
   },
   {
     "clave": "PUE",
-    "nombre": "PUEBLA",
+    "Nombre": "Puebla",
     "muni": [
       "Acajete",
       "Acateno",
@@ -1918,7 +1918,7 @@
   },
   {
     "clave": "QR",
-    "nombre": "QUINTANA ROO",
+    "Nombre": "Quintana Roo",
     "muni": [
       "Bacalar",
       "Benito Juarez",
@@ -1935,7 +1935,7 @@
   },
   {
     "clave": "QRO",
-    "nombre": "QUERETARO",
+    "Nombre": "Queretaro",
     "muni": [
       "Amealco de Bonfil",
       "Arroyo Seco",
@@ -1959,7 +1959,7 @@
   },
   {
     "clave": "SIN",
-    "nombre": "SINALOA",
+    "Nombre": "Sinaloa",
     "muni": [
       "Ahome",
       "Angostura",
@@ -1983,7 +1983,7 @@
   },
   {
     "clave": "SLP",
-    "nombre": "SAN LUIS POTOSI",
+    "Nombre": "San Luis Potosi",
     "muni": [
       "Ahualulco",
       "Alaquines",
@@ -2047,7 +2047,7 @@
   },
   {
     "clave": "SON",
-    "nombre": "SONORA",
+    "Nombre": "Sonora",
     "muni": [
       "Aconchi",
       "Agua Prieta",
@@ -2125,7 +2125,7 @@
   },
   {
     "clave": "TAB",
-    "nombre": "TABASCO",
+    "Nombre": "Tabasco",
     "muni": [
       "Balancan",
       "Cardenas",
@@ -2148,7 +2148,7 @@
   },
   {
     "clave": "TLX",
-    "nombre": "TLAXCALA",
+    "Nombre": "Tlaxcala",
     "muni": [
       "Acuamanala de Miguel Hidalgo",
       "Amaxac de Guerrero",
@@ -2214,7 +2214,7 @@
   },
   {
     "clave": "TMS",
-    "nombre": "TAMAULIPAS",
+    "Nombre": "Tamaulipas",
     "muni": [
       "Abasolo",
       "Aldama",
@@ -2263,7 +2263,7 @@
   },
   {
     "clave": "VER",
-    "nombre": "VERACRUZ",
+    "Nombre": "Veracruz",
     "muni": [
       "Acajete",
       "Acatlan",
@@ -2481,7 +2481,7 @@
   },
   {
     "clave": "YUC",
-    "nombre": "YUCATAN",
+    "Nombre": "Yucatan",
     "muni": [
       "Abala",
       "Acanceh",
@@ -2593,7 +2593,7 @@
   },
   {
     "clave": "ZAC",
-    "nombre": "ZACATECAS",
+    "Nombre": "Zacatecas",
     "muni": [
       "Apozol",
       "Apulco",
