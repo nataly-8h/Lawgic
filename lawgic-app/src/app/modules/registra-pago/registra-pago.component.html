@@ -66,35 +66,59 @@
                         <!-- estado -->
                         <mat-form-field class="w-full">
                             <mat-label>Estado</mat-label>
-                            <mat-select [(value)]="selected" #walletSelector="matSelect">
+                            <mat-select [(value)]="selected" #estadoSelector="matSelect"
+                                (selectionChange)="cambiaEstado()">
                                 <mat-select-trigger>
                                     <span class="flex items-center">
-                                        <span>{{walletSelector.triggerValue}}</span>
+                                        <span>{{estadoSelector.triggerValue}}</span>
+                                         <!-- <span class="mx-1 text-hint">-</span>  -->
+                                        <span class="flex items-center font-mono">
+                                        </span>
+                                    </span>
+                                </mat-select-trigger>
+
+                                <mat-option *ngFor="let est of estados" [value]="est.clave"> {{est.nombre}}
+                                </mat-option>
+
+                            </mat-select>
+
+                            <!-- <input type="text"
+                             placeholder="Elija un estado"
+                             aria-label="Estado"
+                             matInput
+                             [formControl] = "myControl"
+                             [matAutocomplete] = "auto"
+                            >
+                            <mat-autocomplete #auto="matAutocomplete">
+
+                                <mat-option *ngFor="let est of estados" [value]="est.clave"> {{est.nombre}}
+                                </mat-option>
+                            </mat-autocomplete> -->
+
+                        </mat-form-field>
+
+                        <!-- Municipio -->
+                        <mat-form-field class="w-full">
+                            <mat-label>Municipio</mat-label>
+                            <mat-select [(value)]="selectedmun" #munSelector="matSelect">
+                                <mat-select-trigger>
+                                    <span class="flex items-center">
+                                        <span>{{munSelector.triggerValue}}</span>
                                         <!-- <span class="mx-1 text-hint">-</span> -->
                                         <span class="flex items-center font-mono">
                                         </span>
                                     </span>
                                 </mat-select-trigger>
 
-                                <mat-option *ngFor="let est of estados" [value]="est.clave"> {{est.nombre}} </mat-option> 
+                                <mat-option *ngFor="let mun of municipios" [value]="mun"> {{mun}}
+                                </mat-option>
 
                             </mat-select>
-                            <!-- <mat-hint class="flex items-center">
-                                <span class="mr-1">USD:</span>
-                            
-                            </mat-hint> -->
                         </mat-form-field>
-
-                        <mat-form-field class="w-full">
-                            <mat-label>Ciudad</mat-label>
-                            <input id="ciudad" matInput>
-
-                        </mat-form-field>
-
 
                     </div>
 
-                    <p>You selected: {{selected}}</p>
+                    <!-- <p>You selected: {{selected}}</p> -->
 
                     <mat-form-field class="w-full">
                         <mat-label>Profesión</mat-label>
