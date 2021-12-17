@@ -71,7 +71,7 @@
                                 <mat-select-trigger>
                                     <span class="flex items-center">
                                         <span>{{estadoSelector.triggerValue}}</span>
-                                         <!-- <span class="mx-1 text-hint">-</span>  -->
+                                        <!-- <span class="mx-1 text-hint">-</span>  -->
                                         <span class="flex items-center font-mono">
                                         </span>
                                     </span>
@@ -137,9 +137,27 @@
                         <input id="phone" matInput>
                     </mat-form-field>
                     <mat-form-field class="w-full">
-                        <mat-label>Comprobante</mat-label>
                         <input id="phone" matInput>
                     </mat-form-field>
+
+                    <!-- Comprobante -->
+                    <span class="text-base font-medium	 ">Comprobante</span>
+                    <button class="w-full" mat-flat-button [color]="'basic'" (click)="handleClick()"
+                        href="javascript:undefined">
+                        <mat-icon [svgIcon]="'heroicons_outline:photograph'"></mat-icon>
+                        <span class="ml-2 mr-1">Sube tu comprobante</span>
+                    </button>
+                    <input class="hidden" type="file" id="upload-file" name="upload-file" accept=".png"
+                        ngf-max-size="2MB" (change)="addAttachment($event)">
+
+                    <!-- Guardar -->
+                    <button class="w-full" mat-flat-button [color]="'primary'"
+                        href="javascript:undefined">
+                        <mat-icon [svgIcon]="'heroicons_outline:cloud-upload'"></mat-icon>
+                        <span class="ml-2 mr-1">Registrar</span>
+                    </button>
+                    <input class="hidden" type="file" id="upload-file" name="upload-file" accept=".xlsx"
+                        ngf-max-size="2MB" (change)="addAttachment($event)">
 
 
                 </form>

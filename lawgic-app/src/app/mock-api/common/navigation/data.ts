@@ -35,11 +35,11 @@ export const defaultNavigation: FuseNavigationItem[] = [
         icon: 'heroicons_outline:home',
         children: [
             {
-                id: 'sube-formulario',
-                title: 'Subir formulario',
+                id: 'tabla',
+                title: 'Ver datos',
                 type: 'basic',
-                icon: 'heroicons_outline:upload',
-                link: '/sube-formulario'
+                icon: 'heroicons_outline:table',
+                link: '/tabla'
             }
         ]
     }
@@ -78,11 +78,11 @@ export const compactNavigation: FuseNavigationItem[] = [
         icon: 'heroicons_outline:home',
         children: [
             {
-                id: 'sube-formulario',
-                title: 'Subir formulario',
+                id: 'tabla',
+                title: 'Ver datos',
                 type: 'basic',
-                icon: 'heroicons_outline:upload',
-                link: '/sube-formulario'
+                icon: 'heroicons_outline:table',
+                link: '/tabla'
             }
         ]
     }
@@ -121,11 +121,11 @@ export const futuristicNavigation: FuseNavigationItem[] = [
         icon: 'heroicons_outline:home',
         children: [
             {
-                id: 'sube-formulario',
-                title: 'Subir formulario',
+                id: 'tabla',
+                title: 'Ver datos',
                 type: 'basic',
-                icon: 'heroicons_outline:upload',
-                link: '/sube-formulario'
+                icon: 'heroicons_outline:table',
+                link: '/tabla'
             }
         ]
     }
@@ -164,11 +164,11 @@ export const horizontalNavigation: FuseNavigationItem[] = [
         icon: 'heroicons_outline:home',
         children: [
             {
-                id: 'sube-formulario',
-                title: 'Subir formulario',
+                id: 'tabla',
+                title: 'Ver datos',
                 type: 'basic',
-                icon: 'heroicons_outline:upload',
-                link: '/sube-formulario'
+                icon: 'heroicons_outline:table',
+                link: '/tabla'
             }
         ]
     }

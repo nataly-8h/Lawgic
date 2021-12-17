@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Component, OnInit, Input } from '@angular/core';
+import * as XLSX from 'xlsx';
+import readXlsxFile from 'read-excel-file'
+
+
 
 @Component({
   selector: 'app-sube-formulario',
@@ -6,20 +11,47 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sube-formulario.component.scss']
 })
 export class SubeFormularioComponent implements OnInit {
-
+  convertedJson: string;
   constructor() { }
 
   ngOnInit(): void {
   }
 
   handleClick() {
-    document.getElementById('upload-file').click();
+    document.getElementById('excel').click();
     // console.log("dio click");
   }
-  
+
+  arrayBuffer: any;
+  file: File;
+  incomingfile(event) {
+    this.file = event.target.files[0];
+  }
+
+  formData: any = [];
+
   addAttachment(fileInput: any) {
-    const fileReaded = fileInput.target.files[0];
-    console.log(fileReaded.name);
+    const selectedFile = fileInput.target.files[0];
+    // console.log(selectedFile.name);
+
+    //CONVERTIR A JSON
+    const fileReader = new FileReader();
+    fileReader.readAsBinaryString(selectedFile);
+    fileReader.onload = (event) => {
+      console.log(event);
+      let binaryData = event.target.result;
+      let workbook = XLSX.read(binaryData, { type: 'binary' });
+      workbook.SheetNames.forEach(sheet => {
+        const data = XLSX.utils.sheet_to_json(workbook.Sheets[sheet]);
+        // console.log(data);
+        this.convertedJson = JSON.stringify(data, undefined, 4);
+      })
+      console.log(this.convertedJson);
+
+
+    }
+
+
   }
 
 }

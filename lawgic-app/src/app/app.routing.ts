@@ -76,6 +76,7 @@ export const appRoutes: Route[] = [
             {path: 'example', loadChildren: () => import('app/modules/admin/example/example.module').then(m => m.ExampleModule)},
             {path: 'registra-pago', loadChildren: () => import('app/modules/registra-pago/registra-pago.module').then(m => m.RegistraPagoModule)},
             {path: 'sube-formulario', loadChildren: () => import('app/modules/sube-formulario/sube-formulario.module').then(m => m.SubeFormularioModule)},
+            {path: 'tabla', loadChildren: () => import('app/modules/administrador/tabla/tabla.module').then(m => m.TablaModule)},
         ]
     }
 ];

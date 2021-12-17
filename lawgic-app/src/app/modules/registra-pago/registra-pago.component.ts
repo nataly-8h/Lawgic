@@ -90,6 +90,16 @@ export class RegistraPagoComponent implements OnInit {
   // @ Public methods
   // -----------------------------------------------------------------------------------------------------
 
+  handleClick() {
+    document.getElementById('upload-file').click();
+    // console.log("dio click");
+  }
+  
+  addAttachment(fileInput: any) {
+    const fileReaded = fileInput.target.files[0];
+    console.log(fileReaded.name);
+  }
+
   /**
    * Sign up
    */
