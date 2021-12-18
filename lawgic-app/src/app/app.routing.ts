@@ -77,6 +77,7 @@ export const appRoutes: Route[] = [
             {path: 'registra-pago', loadChildren: () => import('app/modules/registra-pago/registra-pago.module').then(m => m.RegistraPagoModule)},
             {path: 'sube-formulario', loadChildren: () => import('app/modules/sube-formulario/sube-formulario.module').then(m => m.SubeFormularioModule)},
             {path: 'tabla', loadChildren: () => import('app/modules/administrador/tabla/tabla.module').then(m => m.TablaModule)},
+            {path: 'galeria-cursos', loadChildren: () => import('app/modules/administrador/galeria-cursos/galeria-cursos.module').then(m => m.GaleriaCursosModule)}
         ]
     }
 ];

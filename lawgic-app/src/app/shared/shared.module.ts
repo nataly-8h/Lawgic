@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+
+import { NgModule, Injectable } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -14,6 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         ReactiveFormsModule
     ]
 })
+@Injectable()
 export class SharedModule
 {
+   
 }
