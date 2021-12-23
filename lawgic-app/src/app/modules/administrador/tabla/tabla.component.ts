@@ -4,6 +4,7 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subject } from 'rxjs';
 import { MatSort } from '@angular/material/sort';
+import { CursorError } from '@angular/compiler/src/ml_parser/lexer';
 
 
 
@@ -33,12 +34,17 @@ export class TablaComponent implements OnInit {
   private _unsubscribeAll: Subject<any> = new Subject<any>();
 
   // constructor(private data: DataService) { }
-  constructor() { }
-
+  constructor() {
+    // this.recentTransactionsDataSource.push("");
+    // console.log("data source" + this.recentTransactionsDataSource);
+  }
+  
   ngOnInit(): void {
+    // this.recentTransactionsDataSource.push({correo: "oa", nombre})
+    
     // this.product=this.formChild.suy;
     // if(this.formChild != null){
-    // console.log("form child " + this.form);
+    // console.log('form child ' + this.form);
     // }
     // console.log(this.prueba);
     // console.log(this.message);

@@ -47,6 +47,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 type: 'basic',
                 icon: 'heroicons_outline:view-grid',
                 link: '/galeria-cursos'
+            },
+            {
+                id   : 'alumnos',
+                title: 'Tus Alumnos',
+                type : 'basic',
+                icon : 'heroicons_outline:user-group',
+                link : '/alumnos'
             }
         ]
     }
@@ -97,6 +104,13 @@ export const compactNavigation: FuseNavigationItem[] = [
                 type: 'basic',
                 icon: 'heroicons_outline:view-grid',
                 link: '/galeria-cursos'
+            },
+            {
+                id   : 'alumnos',
+                title: 'Tus Alumnos',
+                type : 'basic',
+                icon : 'heroicons_outline:user-group',
+                link : '/alumnos'
             }
         ]
     }
@@ -147,6 +161,13 @@ export const futuristicNavigation: FuseNavigationItem[] = [
                 type: 'basic',
                 icon: 'heroicons_outline:view-grid',
                 link: '/galeria-cursos'
+            },
+            {
+                id   : 'alumnos',
+                title: 'Tus Alumnos',
+                type : 'basic',
+                icon : 'heroicons_outline:user-group',
+                link : '/alumnos'
             }
         ]
     }
@@ -197,6 +218,13 @@ export const horizontalNavigation: FuseNavigationItem[] = [
                 type: 'basic',
                 icon: 'heroicons_outline:view-grid',
                 link: '/galeria-cursos'
+            },
+            {
+                id   : 'alumnos',
+                title: 'Tus Alumnos',
+                type : 'basic',
+                icon : 'heroicons_outline:user-group',
+                link : '/alumnos'
             }
         ]
     }
