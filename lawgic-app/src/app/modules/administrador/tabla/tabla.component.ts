@@ -32,12 +32,12 @@ export class TablaComponent implements OnInit {
   recentTransactionsDataSource: MatTableDataSource<any> = new MatTableDataSource();
   recentTransactionsTableColumns: string[] = ['correo', 'nombre', 'curso', 'pagado', 'status'];
   private _unsubscribeAll: Subject<any> = new Subject<any>();
-
+                          nombre
   // constructor(private data: DataService) { }
   constructor() {
-    // this.recentTransactionsDataSource.push("");
-    // console.log("data source" + this.recentTransactionsDataSource);
-  }
+    this.recentTransactionsDataSource.data.push({correo: 'ars.buapp@gmail.com', nombre: 'Abraham Ramírez', curso: 'Propiedad intelectual', pagado: "1102", status:'Pendiente'});
+    this.recentTransactionsDataSource.data.push({correo: 'rolandocabrera.ccyasocc@gmsil.com', nombre: 'Rolando Cabrera', curso: 'Propiedad Intelectual', pagado: "2204", status:'Inscrito'});
+  }pagado
   
   ngOnInit(): void {
     // this.recentTransactionsDataSource.push({correo: "oa", nombre})
