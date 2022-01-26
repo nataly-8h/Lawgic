@@ -9,6 +9,7 @@ import * as XLSX from 'xlsx';
   styleUrls: ['./sube-formulario.component.scss']
 })
 export class SubeFormularioComponent implements OnInit {
+  nombreArchivo = "";
   prueba = "conexión lograda";
   // message:string;
 
@@ -39,7 +40,7 @@ export class SubeFormularioComponent implements OnInit {
 
   agregaExcel(fileInput: any) {
     const selectedFile = fileInput.target.files[0];
-    // console.log(selectedFile.name);
+    this.nombreArchivo = selectedFile.name;
 
     //CONVERTIR A JSON
     const fileReader = new FileReader();

@@ -14,9 +14,9 @@
         <div class="h-300 min-h-0 max-h-400 border-2 border-green-700 rounded-2xl p-3 content-center">
 
             <div flex flex-col content-center>
-                <div class="text-lg md:text-5xl font-semibold tracking-tight leading-8 md:leading-snug truncate">
+                <div class="text-2xl font-extrabold tracking-tight leading-none">
                     Sube tu formulario:</div>
-
+                <br>
                 <div class="mt-4 sm:mt-0">
                     <!-- Upload button -->
                     <button class="w-full" mat-flat-button [color]="'primary'" (click)="handleClick()"
@@ -24,14 +24,14 @@
                         <mat-icon [svgIcon]="'heroicons_outline:upload'"></mat-icon>
                         <span class="ml-2 mr-1">Subir archivo .xlsx</span>
                     </button>
-                    <input class="hidden" type="file" id="excel" name="excel" accept=".xlsx"
-                        ngf-max-size="2MB" (change)="agregaExcel($event)">
+                    <input class="hidden" type="file" id="excel" name="excel" accept=".xlsx" ngf-max-size="2MB"
+                        (change)="agregaExcel($event)">
 
                 </div>
-<!-- 
+                <br>
                 <div
-                    class="text-base md:text-5xl font-semilight tracking-tight leading-8 md:leading-snug truncate text-gray-400">
-                    o </div> -->
+                    class="text-base md:text-base font-semilight tracking-tight leading-8 md:leading-snug truncate text-gray-400 ql-align-right">
+                    Archivo seleccionado: {{nombreArchivo}} </div>
 
 
             </div>
