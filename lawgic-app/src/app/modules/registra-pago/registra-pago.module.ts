@@ -28,6 +28,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSelectModule } from '@angular/material/select';
+import { FacturaComponent } from './factura/factura.component';
 
 
 
@@ -41,7 +42,8 @@ const Routes: Route[] = [
 
 @NgModule({
   declarations: [
-    RegistraPagoComponent
+    RegistraPagoComponent,
+    FacturaComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,44 @@
+<!-- Factura -->
+<div class="flex items-baseline space-x-2">
+    <p class="text-base font-medium">¿Repetir los datos?</p>
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style" value="no">
+        <mat-button-toggle value="si">Si</mat-button-toggle>
+        <mat-button-toggle value="no">No</mat-button-toggle>
+    </mat-button-toggle-group>
+</div>
+<br>
+<form>
+
+    <mat-form-field class="w-full">
+        <mat-label>Nombre de sociedad</mat-label>
+        <input id="nombre_sociedad" matInput>
+    </mat-form-field>
+    <mat-form-field class="w-full">
+        <mat-label>Responsable</mat-label>
+        <input id="responsable" matInput>
+    </mat-form-field>
+    <div class="flex items-baseline space-x-2">
+        <mat-form-field class="w-full">
+            <mat-label>Nombre</mat-label>
+            <input id="factura_name" matInput>
+        </mat-form-field>
+        <!-- Surame field -->
+        <mat-form-field class="w-full">
+            <mat-label>Apellido</mat-label>
+            <input id="factura_lname" matInput>
+        </mat-form-field>
+    </div>
+    <mat-form-field class="w-full">
+        <mat-label>email</mat-label>
+        <input id="factura_email" matInput>
+    </mat-form-field>
+    <mat-form-field class="w-full">
+        <mat-label>Telefono</mat-label>
+        <input id="factura_tel" matInput>
+    </mat-form-field>
+    <mat-form-field class="w-full">
+        <mat-label>Ciudad</mat-label>
+        <input id="factura_ciudad" matInput>
+    </mat-form-field>
+
+</form>

@@ -29,11 +29,16 @@ export class RegistraPagoComponent implements OnInit {
   selected = '';
   selectedmun = '';
   
-  
+  requiereFacturaFlag = false;
   estados: any[] = new Array(32);
   municipios: any[] = new Array();
 
-
+  requiereFactura(){
+    this.requiereFacturaFlag = true;
+  }
+  norequiereFactura(){
+    this.requiereFacturaFlag = false;
+  }
   
   // let jsonCountries = JSON.stringify
 

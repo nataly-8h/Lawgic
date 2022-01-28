@@ -11,7 +11,7 @@
         </div>
         <br>
         <!-- CONTENT GOES HERE -->
-        <div class="h-300 min-h-0 max-h-400 border-2 border-green-700 rounded-2xl p-3">
+        <div class="h-300 min-h-0 max-h-500 border-2 border-green-700 rounded-2xl p-3">
 
             <div flex flex-col items-start min-w-0>
                 <div class="text-lg md:text-5xl font-semibold tracking-tight leading-8 md:leading-snug truncate">
@@ -136,9 +136,6 @@
                         <mat-label>Monto</mat-label>
                         <input id="phone" matInput>
                     </mat-form-field>
-                    <mat-form-field class="w-full">
-                        <input id="phone" matInput>
-                    </mat-form-field>
 
                     <!-- Comprobante -->
                     <span class="text-base font-medium	 ">Comprobante</span>
@@ -150,20 +147,30 @@
                     <input class="hidden" type="file" id="upload-file" name="upload-file" accept=".png"
                         ngf-max-size="2MB" (change)="addAttachment($event)">
 
+                    <!-- Factura -->
+                    <br><br>
+                    <div class="flex items-baseline space-x-2">
+                        <p class="text-base font-medium">¿Requiere factura?</p>
+                        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" value="no">
+                            <mat-button-toggle value="si" (click)="requiereFactura()">Si</mat-button-toggle>
+                            <mat-button-toggle value="no" (click)="norequiereFactura()">No</mat-button-toggle>
+                        </mat-button-toggle-group>
+                    </div>
+                    <br>
+                    <app-factura *ngIf="requiereFacturaFlag">
+                    </app-factura>
                     <!-- Guardar -->
-                    <button class="w-full" mat-flat-button [color]="'primary'"
-                        href="javascript:undefined">
+                    <button class="w-full" mat-flat-button [color]="'primary'" href="javascript:undefined">
                         <mat-icon [svgIcon]="'heroicons_outline:cloud-upload'"></mat-icon>
                         <span class="ml-2 mr-1">Registrar</span>
                     </button>
                     <input class="hidden" type="file" id="upload-file" name="upload-file" accept=".xlsx"
                         ngf-max-size="2MB" (change)="addAttachment($event)">
 
+                    <br>
+
 
                 </form>
-
-
-
 
 
 
