@@ -14,12 +14,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-// import { RouterModule } from '@angular/router';
 import { Route, RouterModule } from '@angular/router';
-// import {BrowserModule} from '@angular/platform-browser';
-// import {MatNativeDateModule} from '@angular/material/core';
-// import {MaterialExampleModule} from '../material.module';
-// import { MatSelectModule } from '@angular/material/select';
 
 
 //intento 2
@@ -30,7 +25,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { FacturaComponent } from './factura/factura.component';
 
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 const Routes: Route[] = [
@@ -57,15 +52,6 @@ const Routes: Route[] = [
     FuseCardModule,
     FuseAlertModule,
     SharedModule,
-    //intento 1
-    // BrowserAnimationsModule,
-    // BrowserModule,
-    // FormsModule,
-    // HttpClientModule,
-    // MatNativeDateModule,
-    // MaterialExampleModule,
-    // ReactiveFormsModule,
-    // MatSelectModule,
 
     //intento de multi select 2
     MatMenuModule,
@@ -73,8 +59,9 @@ const Routes: Route[] = [
     MatTableModule,
     MatTabsModule,
     MatButtonToggleModule,
-    MatSelectModule
+    MatSelectModule,
 
+    FormsModule
 
   ],
   //intento del multi select 1 

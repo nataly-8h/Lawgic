@@ -17,54 +17,58 @@
                 <div class="text-lg md:text-5xl font-semibold tracking-tight leading-8 md:leading-snug truncate">
                     Registrar pago</div>
 
-                <form>
-                    <div
-                        class="text-base md:text-5xl font-semilight tracking-tight leading-8 md:leading-snug truncate text-gray-400">
-                        Ingrese los datos del alumno</div>
+                <div
+                    class="text-base md:text-5xl font-semilight tracking-tight leading-8 md:leading-snug truncate text-gray-400">
+                    Ingrese los datos del alumno</div>
+
+                <form (ngSubmit)="onSubmit(f)" #f="ngForm">
                     <!-- Nombre -->
-                    <div class="flex items-baseline space-x-2">
+                    <div class="form-group flex items-baseline space-x-2">
                         <mat-form-field class="w-full">
                             <mat-label>Nombre</mat-label>
-                            <input id="name" matInput>
-                            <mat-error *ngIf="signUpForm.get('name').hasError('required')">
-                                El nombre es obligatorio
+                            <input id="nombre" matInput class="form-control" ngModel name="nombre" required>
+                            <mat-error>
+
+                            </mat-error>
+                            <mat-error *ngIf="!f.value.apellido">
+                            El nombre es obligatorio
                             </mat-error>
                         </mat-form-field>
-
                         <!-- Surame field -->
                         <mat-form-field class="w-full">
                             <mat-label>Apellido</mat-label>
-                            <input id="lname" matInput>
-                            <!-- <mat-error *ngIf="signUpForm.get('name').hasError('required')">
-                                El apellido es obligatorio
-                            </mat-error> -->
+                            <input id="apellido" matInput class="form-control" ngModel name="apellido" required>
+                            <mat-error *ngIf="!f.value.nombre">
+                            El apellido es obligatorio
+                            </mat-error>
                         </mat-form-field>
                     </div>
 
                     <!-- Correo Electrónico -->
                     <mat-form-field class="w-full">
                         <mat-label>Correo electrónico</mat-label>
-                        <input id="email" matInput>
-                        <!-- <mat-error *ngIf="signInForm.get('email').hasError('required')">
+                        <input id="email" matInput class="form-control" ngModel name="email" required email #correo="ngModel">
+                        <!-- <mat-error *ngIf="!f.value.email">
                             El correo electrónico es obligatorio
-                        </mat-error>
-                        <mat-error *ngIf="signInForm.get('email').hasError('email')">
-                            Por favor ingrese un correo electrónico válido
                         </mat-error> -->
+                        <mat-error *ngIf="!correo.valid">
+                            Por favor ingrese un correo electrónico válido
+                        </mat-error>
                     </mat-form-field>
 
                     <mat-form-field class="w-full">
                         <mat-label>Teléfono</mat-label>
-                        <input id="phone" matInput>
+                        <input id="phone" matInput class="form-control" ngModel name="tel" required type="tel" >
+                        <!-- pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" -->
                     </mat-form-field>
                     <mat-form-field class="w-full">
                         <mat-label>Teléfono adicional</mat-label>
-                        <input id="phone" matInput>
+                        <input id="addphone" matInput class="form-control" ngModel name="adTel" type="tel">
                     </mat-form-field>
 
                     <div class="flex items-baseline space-x-2">
                         <!-- estado -->
-                        <mat-form-field class="w-full">
+                        <mat-form-field class="w-full" >
                             <mat-label>Estado</mat-label>
                             <mat-select [(value)]="selected" #estadoSelector="matSelect"
                                 (selectionChange)="cambiaEstado()">
@@ -76,29 +80,18 @@
                                         </span>
                                     </span>
                                 </mat-select-trigger>
-
+                                
                                 <mat-option *ngFor="let est of estados" [value]="est.clave"> {{est.nombre}}
+                                
+                                    <input id="apellido" matInput class="form-control" ngModel name="estado" required>
                                 </mat-option>
-
+                                
                             </mat-select>
-
-                            <!-- <input type="text"
-                             placeholder="Elija un estado"
-                             aria-label="Estado"
-                             matInput
-                             [formControl] = "myControl"
-                             [matAutocomplete] = "auto"
-                            >
-                            <mat-autocomplete #auto="matAutocomplete">
-
-                                <mat-option *ngFor="let est of estados" [value]="est.clave"> {{est.nombre}}
-                                </mat-option>
-                            </mat-autocomplete> -->
-
+                            
                         </mat-form-field>
 
                         <!-- Municipio -->
-                        <mat-form-field class="w-full">
+                        <mat-form-field class="w-full" >
                             <mat-label>Municipio</mat-label>
                             <mat-select [(value)]="selectedmun" #munSelector="matSelect">
                                 <mat-select-trigger>
@@ -122,19 +115,19 @@
 
                     <mat-form-field class="w-full">
                         <mat-label>Profesión</mat-label>
-                        <input id="phone" matInput>
+                        <input id="profesion" matInput>
                     </mat-form-field>
                     <mat-form-field class="w-full">
                         <mat-label>Edad</mat-label>
-                        <input id="phone" matInput>
+                        <input type="number" id="edad" matInput>
                     </mat-form-field>
                     <mat-form-field class="w-full">
                         <mat-label>Curso</mat-label>
-                        <input id="phone" matInput>
+                        <input id="curso" matInput>
                     </mat-form-field>
                     <mat-form-field class="w-full">
                         <mat-label>Monto</mat-label>
-                        <input id="phone" matInput>
+                        <input id="monto" matInput>
                     </mat-form-field>
 
                     <!-- Comprobante -->
@@ -159,18 +152,19 @@
                     <br>
                     <app-factura *ngIf="requiereFacturaFlag">
                     </app-factura>
-                    <!-- Guardar -->
-                    <button class="w-full" mat-flat-button [color]="'primary'" href="javascript:undefined">
-                        <mat-icon [svgIcon]="'heroicons_outline:cloud-upload'"></mat-icon>
+
+                    <button class="w-full" mat-flat-button [color]="'primary'" href="javascript:undefined" [disabled]="!f.valid">
+                        <mat-icon [svgIcon]="'heroicons_outline:database'"></mat-icon>
                         <span class="ml-2 mr-1">Registrar</span>
                     </button>
-                    <input class="hidden" type="file" id="upload-file" name="upload-file" accept=".xlsx"
-                        ngf-max-size="2MB" (change)="addAttachment($event)">
-
-                    <br>
-
-
                 </form>
+
+                <!-- Guardar -->
+                <!-- <button class="w-full" mat-flat-button [color]="'primary'" href="javascript:undefined"
+                    (click)="registraPago()">
+                    <mat-icon [svgIcon]="'heroicons_outline:database'"></mat-icon>
+                    <span class="ml-2 mr-1">Registrar</span>
+                </button> -->
 
 
 

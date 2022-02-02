@@ -1,10 +1,11 @@
+import { ElementRef } from '@angular/core';
 // import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 // import { fuseAnimations } from '@fuse/animations';
 import { FuseAlertType } from '@fuse/components/alert';
 import { AuthService } from 'app/core/auth/auth.service';
-import  *  as  estado_data  from  './estados.json';
+import *  as  estado_data from './estados.json';
 
 //wallet
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
@@ -26,23 +27,24 @@ interface Food {
 })
 export class RegistraPagoComponent implements OnInit {
 
+  @ViewChild('f') pagoNgForm: NgForm;
+
   selected = '';
   selectedmun = '';
-  
+
   requiereFacturaFlag = false;
   estados: any[] = new Array(32);
   municipios: any[] = new Array();
 
-  requiereFactura(){
+  requiereFactura() {
     this.requiereFacturaFlag = true;
   }
-  norequiereFactura(){
+  norequiereFactura() {
     this.requiereFacturaFlag = false;
   }
-  
+
   // let jsonCountries = JSON.stringify
 
-  @ViewChild('signUpNgForm') signUpNgForm: NgForm;
 
   @ViewChild('btcChartComponent') btcChartComponent: ChartComponent;
   appConfig: any;
@@ -57,18 +59,23 @@ export class RegistraPagoComponent implements OnInit {
     type: 'success',
     message: ''
   };
-  signUpForm: FormGroup;
+  pagoForm: FormGroup;
   showAlert: boolean = false;
 
   constructor(
     private _authService: AuthService,
     private _formBuilder: FormBuilder,
     private _router: Router
-  ) { 
+  ) {
 
-    for(let i = 0; i < 32; i++){
+    for (let i = 0; i < 32; i++) {
       this.estados[i] = estado_data[i];
     }
+
+    // this.form = this._formBuilder.group({
+    //   titular: [''],
+    //   name: ['']
+    // })
 
   }
 
@@ -77,16 +84,14 @@ export class RegistraPagoComponent implements OnInit {
      */
   ngOnInit(): void {
 
-    console.log(this.estados[0]);
+    // console.log(this.estados[0]);
 
 
     // Create the form
-    this.signUpForm = this._formBuilder.group({
-      name: ['', Validators.required],
+    this.pagoForm = this._formBuilder.group({
+      nombre: ['', Validators.required],
+      apellido: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-      company: [''],
-      agreements: ['', Validators.requiredTrue]
     }
     );
   }
@@ -99,202 +104,181 @@ export class RegistraPagoComponent implements OnInit {
     document.getElementById('upload-file').click();
     // console.log("dio click");
   }
-  
+
   addAttachment(fileInput: any) {
     const fileReaded = fileInput.target.files[0];
     console.log(fileReaded.name);
   }
 
-  /**
-   * Sign up
-   */
-  signUp(): void {
-    // Do nothing if the form is invalid
-    if (this.signUpForm.invalid) {
-      return;
-    }
 
-    // Disable the form
-    this.signUpForm.disable();
 
-    // Hide the alert
-    this.showAlert = false;
-
-    // Sign up
-    this._authService.signUp(this.signUpForm.value)
-      .subscribe(
-        (response) => {
-
-          // Navigate to the confirmation required page
-          this._router.navigateByUrl('/confirmation-required');
-        },
-        (response) => {
-
-          // Re-enable the form
-          this.signUpForm.enable();
-
-          // Reset the form
-          this.signUpNgForm.resetForm();
-
-          // Set the alert
-          this.alert = {
-            type: 'error',
-            message: 'Something went wrong, please try again.'
-          };
-
-          // Show the alert
-          this.showAlert = true;
-        }
-      );
+  // form: FormGroup;
+  registraPago() {
+    console.log("Registrando pago...");
+    // const registroPago: any = {
+    //   nombre: this.form.get('Titular')?.value,
+    //   name: this.form.get('name')?.value
+    // }
+    // console.log(registroPago);
   }
 
-  cambiaEstado(): void{
-    let estnum:number;
+  onSubmit(form: NgForm) {
+    console.log("on submit corriendo");
+    if (form.valid) {
+      console.log(form.value.nombre);
+    }
+    console.log(form.value);
+    // this.pagoForm = new FormGroup(this.pagoNgForm.value);
+    // console.log(this.pagoForm.value);
+  }
 
-    switch(this.selected) { 
-      case 'AGS': { 
-         estnum = 0;
-         break; 
-      } 
-      case 'BC': { 
+  cambiaEstado(): void {
+    let estnum: number;
+
+    switch (this.selected) {
+      case 'AGS': {
+        estnum = 0;
+        break;
+      }
+      case 'BC': {
         estnum = 1;
-         break; 
-      } 
-      case 'BCS': { 
+        break;
+      }
+      case 'BCS': {
         estnum = 2;
-         break; 
-      } 
-      case 'CHI': { 
+        break;
+      }
+      case 'CHI': {
         estnum = 3;
-         break; 
-      } 
-      case 'CHS': { 
+        break;
+      }
+      case 'CHS': {
         estnum = 4;
-         break; 
-      } 
-      case 'CMP': { 
+        break;
+      }
+      case 'CMP': {
         estnum = 5;
-         break; 
-      } 
-      case 'CMX': { 
+        break;
+      }
+      case 'CMX': {
         estnum = 6;
-         break; 
-      } 
-      case 'COA': { 
+        break;
+      }
+      case 'COA': {
         estnum = 7;
-         break; 
-      } 
-      case 'COL': { 
+        break;
+      }
+      case 'COL': {
         estnum = 8;
-         break; 
-      } 
-      case 'DGO': { 
+        break;
+      }
+      case 'DGO': {
         estnum = 9;
-         break; 
-      } 
-      case 'GRO': { 
+        break;
+      }
+      case 'GRO': {
         estnum = 10;
-         break; 
-      } 
-      case 'GTO': { 
+        break;
+      }
+      case 'GTO': {
         estnum = 11;
-         break; 
-      } 
-      case 'HGO': { 
+        break;
+      }
+      case 'HGO': {
         estnum = 12;
-         break; 
-      } 
-      case 'JAL': { 
+        break;
+      }
+      case 'JAL': {
         estnum = 13;
-         break; 
-      } 
-      case 'MCH': { 
+        break;
+      }
+      case 'MCH': {
         estnum = 14;
-         break; 
-      } 
-      case 'MEX': { 
+        break;
+      }
+      case 'MEX': {
         estnum = 15;
-         break; 
-      } 
-      case 'MOR': { 
+        break;
+      }
+      case 'MOR': {
         estnum = 16;
-         break; 
-      } 
-      case 'NAY': { 
+        break;
+      }
+      case 'NAY': {
         estnum = 17;
-         break; 
-      } 
-      case 'NL': { 
+        break;
+      }
+      case 'NL': {
         estnum = 18;
-         break; 
-      } 
-      case 'OAX': { 
+        break;
+      }
+      case 'OAX': {
         estnum = 19;
-         break; 
-      } 
-      case 'PUE': { 
+        break;
+      }
+      case 'PUE': {
         estnum = 20;
-         break; 
-      } 
-      case 'QR': { 
+        break;
+      }
+      case 'QR': {
         estnum = 21;
-         break; 
-      } 
-      case 'QRO': { 
+        break;
+      }
+      case 'QRO': {
         estnum = 22;
-         break; 
-      } 
-      case 'SIN': { 
+        break;
+      }
+      case 'SIN': {
         estnum = 23;
-         break; 
-      } 
-      case 'SLP': { 
+        break;
+      }
+      case 'SLP': {
         estnum = 24;
-         break; 
-      } 
-      case 'SON': { 
+        break;
+      }
+      case 'SON': {
         estnum = 25;
-         break; 
-      } 
-      case 'TAB': { 
+        break;
+      }
+      case 'TAB': {
         estnum = 26;
-         break; 
-      } 
-      case 'TLX': { 
+        break;
+      }
+      case 'TLX': {
         estnum = 27;
-         break; 
-      } 
-      case 'TMS': { 
+        break;
+      }
+      case 'TMS': {
         estnum = 28;
-         break; 
-      } 
-      case 'VER': { 
+        break;
+      }
+      case 'VER': {
         estnum = 29;
-         break; 
-      } 
-      case 'YUC': { 
+        break;
+      }
+      case 'YUC': {
         estnum = 30;
-         break; 
-      } 
-      case 'ZAC': { 
+        break;
+      }
+      case 'ZAC': {
         estnum = 31;
-         break; 
-      } 
-      
-      default: { 
-         //statements; 
-         break; 
-      } 
-   } 
+        break;
+      }
+
+      default: {
+        //statements; 
+        break;
+      }
+    }
 
     // if(this.selected === 'AGS'){
 
     // }
     this.municipios = new Array(this.estados[estnum].muni.length);
-    for(let i = 0; i < this.municipios.length; i++){
+    for (let i = 0; i < this.municipios.length; i++) {
       this.municipios[i] = this.estados[estnum].muni[i];
     }
-    
+
   }
 
 }
