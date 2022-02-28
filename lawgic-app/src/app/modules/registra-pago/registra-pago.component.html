@@ -4,7 +4,7 @@
     <div class="flex-auto p-6 sm:p-10">
         <div class="flex flex-auto items-start min-w-0">
             <div class="flex flex-col min-w-0 ">
-                <div class="text-2xl md:text-5xl font-bold tracking-tight leading-8 md:leading-snug truncate">
+                <div class="text-2xl md:text-3xl font-bold tracking-tight leading-8 md:leading-snug truncate">
                     ¡Bienvenido!</div>
 
             </div>
@@ -14,32 +14,28 @@
         <div class="h-300 min-h-0 max-h-500 border-2 border-green-700 rounded-2xl p-3">
 
             <div flex flex-col items-start min-w-0>
-                <div class="text-lg md:text-5xl font-semibold tracking-tight leading-8 md:leading-snug truncate">
+                <div class="text-lg md:text-2xl font-semibold tracking-tight leading-8 md:leading-snug truncate">
                     Registrar pago</div>
 
-                <div
-                    class="text-base md:text-5xl font-semilight tracking-tight leading-8 md:leading-snug truncate text-gray-400">
+                <div class="text-base font-medium font-semilight tracking-tight leading-8 md:leading-snug truncate text-gray-400">
                     Ingrese los datos del alumno</div>
 
-                <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                <form #f="ngForm">
                     <!-- Nombre -->
                     <div class="form-group flex items-baseline space-x-2">
                         <mat-form-field class="w-full">
                             <mat-label>Nombre</mat-label>
                             <input id="nombre" matInput class="form-control" ngModel name="nombre" required>
-                            <mat-error>
-
-                            </mat-error>
-                            <mat-error *ngIf="!f.value.apellido">
-                            El nombre es obligatorio
+                            <mat-error *ngIf="!f.value.nombre">
+                                El nombre es obligatorio
                             </mat-error>
                         </mat-form-field>
                         <!-- Surame field -->
                         <mat-form-field class="w-full">
                             <mat-label>Apellido</mat-label>
                             <input id="apellido" matInput class="form-control" ngModel name="apellido" required>
-                            <mat-error *ngIf="!f.value.nombre">
-                            El apellido es obligatorio
+                            <mat-error *ngIf="!f.value.apellido">
+                                El apellido es obligatorio
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -58,47 +54,44 @@
 
                     <mat-form-field class="w-full">
                         <mat-label>Teléfono</mat-label>
-                        <input id="phone" matInput class="form-control" ngModel name="tel" required type="tel" >
+                        <input id="phone" matInput class="form-control" ngModel name="tel" maxlength=10 pattern="[0-9]{10}" type="tel" required>
                         <!-- pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" -->
+                        <mat-error>Por favor ingrese un número de teléfono válido.</mat-error>
                     </mat-form-field>
                     <mat-form-field class="w-full">
                         <mat-label>Teléfono adicional</mat-label>
                         <input id="addphone" matInput class="form-control" ngModel name="adTel" type="tel">
+                        <mat-error>Error</mat-error>
                     </mat-form-field>
 
                     <div class="flex items-baseline space-x-2">
                         <!-- estado -->
-                        <mat-form-field class="w-full" >
+                        <mat-form-field class="w-full">
                             <mat-label>Estado</mat-label>
-                            <mat-select [(value)]="selected" #estadoSelector="matSelect"
-                                (selectionChange)="cambiaEstado()">
+                            <mat-select [(value)]="selected" #estadoSelector="matSelect" (selectionChange)="cambiaEstado()" ngModel name="estado" required>
                                 <mat-select-trigger>
                                     <span class="flex items-center">
                                         <span>{{estadoSelector.triggerValue}}</span>
-                                        <!-- <span class="mx-1 text-hint">-</span>  -->
-                                        <span class="flex items-center font-mono">
+                                    <!-- <span class="mx-1 text-hint">-</span>  -->
+                                    <span class="flex items-center font-mono">
                                         </span>
                                     </span>
                                 </mat-select-trigger>
-                                
-                                <mat-option *ngFor="let est of estados" [value]="est.clave"> {{est.nombre}}
-                                
-                                    <input id="apellido" matInput class="form-control" ngModel name="estado" required>
+                                <mat-option *ngFor="let est of estados" [value]="est.clave" #matEstado> {{est.nombre}}
                                 </mat-option>
-                                
                             </mat-select>
-                            
+                            <mat-error>Error</mat-error>
                         </mat-form-field>
 
                         <!-- Municipio -->
-                        <mat-form-field class="w-full" >
+                        <mat-form-field class="w-full">
                             <mat-label>Municipio</mat-label>
-                            <mat-select [(value)]="selectedmun" #munSelector="matSelect">
+                            <mat-select [(value)]="selectedmun" #munSelector="matSelect" ngModel name="municipio" required>
                                 <mat-select-trigger>
                                     <span class="flex items-center">
                                         <span>{{munSelector.triggerValue}}</span>
-                                        <!-- <span class="mx-1 text-hint">-</span> -->
-                                        <span class="flex items-center font-mono">
+                                    <!-- <span class="mx-1 text-hint">-</span> -->
+                                    <span class="flex items-center font-mono">
                                         </span>
                                     </span>
                                 </mat-select-trigger>
@@ -107,41 +100,60 @@
                                 </mat-option>
 
                             </mat-select>
+                            <mat-error>Error</mat-error>
                         </mat-form-field>
 
                     </div>
 
                     <!-- <p>You selected: {{selected}}</p> -->
-
-                    <mat-form-field class="w-full">
-                        <mat-label>Profesión</mat-label>
-                        <input id="profesion" matInput>
-                    </mat-form-field>
-                    <mat-form-field class="w-full">
-                        <mat-label>Edad</mat-label>
-                        <input type="number" id="edad" matInput>
-                    </mat-form-field>
+                    <div class="form-group flex items-baseline space-x-2">
+                        <mat-form-field class="w-full">
+                            <mat-label>Ocupación</mat-label>
+                            <input #ocup matInput class="form-control" ngModel name="ocupacion">
+                            <mat-error>Error</mat-error>
+                            <!-- <p>ocupacion {{ocup.valid}}</p> -->
+                        </mat-form-field>
+                        <mat-form-field class="w-full">
+                            <mat-label>Edad</mat-label>
+                            <input #edad type="number" id="edad" matInput step="1" class="form-control" ngModel name="edad">
+                            <mat-error>Error</mat-error>
+                            <!-- <p> {{edad.valid}}</p> -->
+                        </mat-form-field>
+                    </div>
                     <mat-form-field class="w-full">
                         <mat-label>Curso</mat-label>
-                        <input id="curso" matInput>
+                        <input #curso matInput class="form-control" ngModel name="curso" required>
+                        <mat-error>Error</mat-error>
                     </mat-form-field>
-                    <mat-form-field class="w-full">
-                        <mat-label>Monto</mat-label>
-                        <input id="monto" matInput>
-                    </mat-form-field>
+                    <p> {{curso.valid}}</p>
+
+                    <div>
+                        <mat-form-field class="w-full">
+                            <mat-label>Monto</mat-label>
+                            <input matInput #a type="number" class="form-control" ngModel name="monto" required>
+                            <mat-error>Agregue un monto mayor a $0.0 MXN</mat-error>
+                            <mat-hint *ngIf="a.value > 0 ; else noPesos" class="text-base font-medium font-semilight tracking-tight leading-8 md:leading-snug truncate text-gray-400">
+                                Monto a ingresar: ${{a.value}} MXN</mat-hint>
+                            <ng-template #noPesos>
+                                <mat-hint class="text-base font-medium font-semilight tracking-tight leading-8 md:leading-snug truncate text-gray-400">
+                                    Monto a ingresar: $0.0 MXN
+                                </mat-hint>
+                            </ng-template>
+                        </mat-form-field>
+                    </div>
 
                     <!-- Comprobante -->
-                    <span class="text-base font-medium	 ">Comprobante</span>
-                    <button class="w-full" mat-flat-button [color]="'basic'" (click)="handleClick()"
-                        href="javascript:undefined">
+                    <span class="text-base font-medium">Comprobante</span>
+                    <button class="w-full" mat-flat-button [color]="'basic'" (click)="handleClick()" href="javascript:undefined">
                         <mat-icon [svgIcon]="'heroicons_outline:photograph'"></mat-icon>
                         <span class="ml-2 mr-1">Sube tu comprobante</span>
                     </button>
-                    <input class="hidden" type="file" id="upload-file" name="upload-file" accept=".png"
-                        ngf-max-size="2MB" (change)="addAttachment($event)">
+                    <input class="hidden" type="file" id="upload-file" name="upload-file" accept=".png" ngf-max-size="2MB" (change)="addAttachment($event)" ngModel name="confirmacion">
+
+                    <div class="text-base font-medium font-semilight tracking-tight leading-8 md:leading-snug truncate text-gray-400">Archivo adjunto: {{imagen_comprobante}}</div>
 
                     <!-- Factura -->
-                    <br><br>
+                    <br>
                     <div class="flex items-baseline space-x-2">
                         <p class="text-base font-medium">¿Requiere factura?</p>
                         <mat-button-toggle-group name="fontStyle" aria-label="Font Style" value="no">
@@ -153,32 +165,22 @@
                     <app-factura *ngIf="requiereFacturaFlag">
                     </app-factura>
 
-                    <button class="w-full" mat-flat-button [color]="'primary'" href="javascript:undefined" [disabled]="!f.valid">
+                    <!-- <button class="w-full" mat-flat-button [color]="'primary'" href="javascript:undefined">
+                        [disabled]="!f.valid">
                         <mat-icon [svgIcon]="'heroicons_outline:database'"></mat-icon>
                         <span class="ml-2 mr-1">Registrar</span>
-                    </button>
+                    </button> -->
                 </form>
 
                 <!-- Guardar -->
-                <!-- <button class="w-full" mat-flat-button [color]="'primary'" href="javascript:undefined"
-                    (click)="registraPago()">
+                <button class="w-full" mat-flat-button [color]="'primary'" href="javascript:undefined" (click)="registraPago(f)">
                     <mat-icon [svgIcon]="'heroicons_outline:database'"></mat-icon>
                     <span class="ml-2 mr-1">Registrar</span>
-                </button> -->
+                </button>
 
 
 
             </div>
-
-
-
-
-
-
-
         </div>
-
-
-
     </div>
 </div>

@@ -105,24 +105,26 @@ export class RegistraPagoComponent implements OnInit {
     // console.log("dio click");
   }
 
+  imagen_comprobante = "ninguno";
   addAttachment(fileInput: any) {
     const fileReaded = fileInput.target.files[0];
+    this.imagen_comprobante = fileReaded.name;
     console.log(fileReaded.name);
   }
 
 
 
   // form: FormGroup;
-  registraPago() {
-    console.log("Registrando pago...");
-    // const registroPago: any = {
-    //   nombre: this.form.get('Titular')?.value,
-    //   name: this.form.get('name')?.value
-    // }
-    // console.log(registroPago);
-  }
+  // registraPago() {
+  //   console.log("Registrando pago...");
+  //   // const registroPago: any = {
+  //   //   nombre: this.form.get('Titular')?.value,
+  //   //   name: this.form.get('name')?.value
+  //   // }
+  //   // console.log(registroPago);
+  // }
 
-  onSubmit(form: NgForm) {
+  registraPago(form: NgForm) {
     console.log("on submit corriendo");
     if (form.valid) {
       console.log(form.value.nombre);

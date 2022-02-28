@@ -14,40 +14,26 @@ import { CursorError } from '@angular/compiler/src/ml_parser/lexer';
   styleUrls: ['./tabla.component.scss']
 })
 export class TablaComponent implements OnInit {
-  @ViewChild('recentTransactionsTable', { read: MatSort }) recentTransactionsTableMatSort: MatSort;
-  // @ViewChild(SubeFormularioComponent) formChild;
-
-  // message:string;
+  @ViewChild('recentRegisterTable', { read: MatSort }) recentRegisterTableMatSort: MatSort;
 
 
   ngAfterViewInit() {
-    // this.product.productName = this.formChild; //<= This will set data
-    // console.log(this.product);
-    // this.data.currentMessage.subscribe(message => this.message = message)
   }
 
   product: any;
 
-  // accountBalanceOptions: ApexOptions;
-  recentTransactionsDataSource: MatTableDataSource<any> = new MatTableDataSource();
-  recentTransactionsTableColumns: string[] = ['correo', 'nombre', 'curso', 'pagado', 'status'];
+  recentRegisterDataSource: MatTableDataSource<any> = new MatTableDataSource();
+  recentRegisterTableColumns: string[] = ['correo', 'nombre', 'curso', 'pagado', 'status'];
   private _unsubscribeAll: Subject<any> = new Subject<any>();
                           nombre
-  // constructor(private data: DataService) { }
   constructor() {
-    this.recentTransactionsDataSource.data.push({correo: 'ars.buapp@gmail.com', nombre: 'Abraham Ramírez', curso: 'Propiedad intelectual', pagado: "1102", status:'Pendiente'});
-    this.recentTransactionsDataSource.data.push({correo: 'rolandocabrera.ccyasocc@gmsil.com', nombre: 'Rolando Cabrera', curso: 'Propiedad Intelectual', pagado: "2204", status:'Inscrito'});
+    //ejemplos de datos
+    this.recentRegisterDataSource.data.push({correo: 'ars.buapp@gmail.com', nombre: 'Abraham Ramírez', curso: 'Propiedad intelectual', pagado: "1102", status:'Pendiente'});
+    this.recentRegisterDataSource.data.push({correo: 'rolandocabrera.ccyasocc@gmsil.com', nombre: 'Rolando Cabrera', curso: 'Propiedad Intelectual', pagado: "2204", status:'Inscrito'});
   }pagado
   
   ngOnInit(): void {
-    // this.recentTransactionsDataSource.push({correo: "oa", nombre})
     
-    // this.product=this.formChild.suy;
-    // if(this.formChild != null){
-    // console.log('form child ' + this.form);
-    // }
-    // console.log(this.prueba);
-    // console.log(this.message);
   }
 
   trackByFn(index: number, item: any): any {
