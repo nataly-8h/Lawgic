@@ -4,7 +4,7 @@ Angular version 12.2.3
 
 NodeJS version: 14.19.0 → angular solo soporta las versiones que están actualmente en mantenimiento
 
-__Dentro de /lawgic-app :__
+### Dentro de /lawgic-app :
 
 ``npm install``
 
