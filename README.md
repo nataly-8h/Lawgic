@@ -6,4 +6,5 @@ NodeJS version: 14.19.0 → angular solo soporta las versiones que están actual
 ``npm install``
 
 Run programm: ``ng serve``
+
 Build: ``ng build``
